@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Instituto Brasileiro do Bem Estar e Envelhecimento Ativo - Medicina Tradicional Chinesa, Acupuntura e Longevidade">
+    <title>IBBEA - Instituto Brasileiro do Bem Estar e Envelhecimento Ativo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #060d18;
+            --bg-medium: #0b1625;
+            --bg-light: #0f1825;
+            --border: #1a2d44;
+            --gold: #d4a853;
+            --text-primary: #e0e0e0;
+            --text-secondary: #b8c9de;
+            --text-muted: #6b8aaa;
+            --madeira: #4ade80;
+            --fogo: #f87171;
+            --terra: #fbbf24;
+            --metal: #94a3b8;
+            --agua: #60a5fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background: var(--bg-light);
+            border-bottom: 2px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-symbol {
+            font-size: 2.5rem;
+            color: var(--gold);
+        }
+
+        .logo-text h1 {
+            color: var(--gold);
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+        }
+
+        .logo-text p {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, var(--bg-medium) 0%, var(--bg-dark) 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-symbol {
+            font-size: 6rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(212, 168, 83, 0.3);
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), #c4985d);
+            color: var(--bg-dark);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 168, 83, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* ELEMENTS SECTION */
+        .elements-section {
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h3 {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .elements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .element-card {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .element-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .element-symbol {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            border: 3px solid;
+        }
+
+        .madeira-card { border-left: 4px solid var(--madeira); }
+        .madeira-symbol { background: rgba(74, 222, 128, 0.1); color: var(--madeira); border-color: var(--madeira); }
+
+        .fogo-card { border-left: 4px solid var(--fogo); }
+        .fogo-symbol { background: rgba(248, 113, 113, 0.1); color: var(--fogo); border-color: var(--fogo); }
+
+        .terra-card { border-left: 4px solid var(--terra); }
+        .terra-symbol { background: rgba(251, 191, 36, 0.1); color: var(--terra); border-color: var(--terra); }
+
+        .metal-card { border-left: 4px solid var(--metal); }
+        .metal-symbol { background: rgba(148, 163, 184, 0.1); color: var(--metal); border-color: var(--metal); }
+
+        .agua-card { border-left: 4px solid var(--agua); }
+        .agua-symbol { background: rgba(96, 165, 250, 0.1); color: var(--agua); border-color: var(--agua); }
+
+        .element-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .element-card .organs {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .element-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* RESOURCES SECTION */
+        .resources-section {
+            background: var(--bg-medium);
+            padding: 4rem 2rem;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .resources-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .resource-card {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .resource-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .resource-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .resource-card h4 {
+            color: var(--gold);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .resource-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .resource-card a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .resource-card a:hover {
+            gap: 1rem;
+        }
+
+        /* ABOUT SECTION */
+        .about-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--gold);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+            border-left: 3px solid var(--gold);
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+
+        .feature-text h5 {
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .feature-text p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--bg-light);
+            border-top: 2px solid var(--gold);
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .elements-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .element-card,
+        .resource-card,
+        .feature-item {
+            animation: fadeIn 0.6s ease-out backwards;
+        }
+
+        .element-card:nth-child(1) { animation-delay: 0.1s; }
+        .element-card:nth-child(2) { animation-delay: 0.2s; }
+        .element-card:nth-child(3) { animation-delay: 0.3s; }
+        .element-card:nth-child(4) { animation-delay: 0.4s; }
+        .element-card:nth-child(5) { animation-delay: 0.5s; }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <div class="logo-symbol">針</div>
+                <div class="logo-text">
+                    <h1>IBBEA</h1>
+                    <p>INSTITUTO BRASILEIRO DO BEM ESTAR E ENVELHECIMENTO ATIVO</p>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="recursos.html">Recursos</a></li>
+                <li><a href="avaliacao-interativa.html">Avaliação</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-symbol">陰陽</div>
+        <h2>MEDICINA TRADICIONAL CHINESA</h2>
+        <p>
+            Promovendo saúde, longevidade e bem-estar através dos princípios milenares da Medicina Tradicional Chinesa. 
+            Formação profissional, ferramentas clínicas e conhecimento integrado para profissionais da saúde.
+        </p>
+        <div class="hero-cta">
+            <a href="avaliacao-interativa.html" class="btn btn-primary">INICIAR AVALIAÇÃO</a>
+            <a href="sobre.html" class="btn btn-secondary">SAIBA MAIS</a>
+        </div>
+    </section>
+
+    <!-- 5 ELEMENTS -->
+    <section class="elements-section">
+        <div class="section-title">
+            <h3>OS CINCO ELEMENTOS — 五行 (Wǔ Xíng)</h3>
+            <p>Fundamentos da Medicina Tradicional Chinesa</p>
+        </div>
+
+        <div class="elements-grid">
+            <div class="element-card madeira-card">
+                <div class="element-symbol madeira-symbol">木</div>
+                <h4 style="color: var(--madeira);">MADEIRA</h4>
+                <p class="organs">Fígado • Vesícula Biliar</p>
+                <p>Crescimento, flexibilidade, planejamento. Emoção: raiva/frustração. Governa tendões, olhos e Hun (alma etérea).</p>
+            </div>
+
+            <div class="element-card fogo-card">
+                <div class="element-symbol fogo-symbol">火</div>
+                <h4 style="color: var(--fogo);">FOGO</h4>
+                <p class="organs">Coração • Pericárdio • ID • TA</p>
+                <p>Consciência, alegria, comunicação. Emoção: excesso de alegria/ansiedade. Governa vasos, língua e Shen (espírito).</p>
+            </div>
+
+            <div class="element-card terra-card">
+                <div class="element-symbol terra-symbol">土</div>
+                <h4 style="color: var(--terra);">TERRA</h4>
+                <p class="organs">Baço • Estômago</p>
+                <p>Nutrição, transformação, reflexão. Emoção: preocupação. Governa músculos, boca e Yi (intenção/pensamento).</p>
+            </div>
+
+            <div class="element-card metal-card">
+                <div class="element-symbol metal-symbol">金</div>
+                <h4 style="color: var(--metal);">METAL</h4>
+                <p class="organs">Pulmão • Intestino Grosso</p>
+                <p>Purificação, fronteiras, soltar. Emoção: tristeza/melancolia. Governa pele, nariz e Po (alma corpórea).</p>
+            </div>
+
+            <div class="element-card agua-card">
+                <div class="element-symbol agua-symbol">水</div>
+                <h4 style="color: var(--agua);">ÁGUA</h4>
+                <p class="organs">Rim • Bexiga</p>
+                <p>Essência, vontade, sabedoria. Emoção: medo. Governa ossos, ouvidos, cabelos e Zhi (força de vontade).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESOURCES -->
+    <section class="resources-section">
+        <div class="section-title">
+            <h3>FERRAMENTAS CLÍNICAS</h3>
+            <p>Recursos profissionais para diagnóstico e tratamento</p>
+        </div>
+
+        <div class="resources-grid">
+            <div class="resource-card">
+                <div class="resource-icon">🎯</div>
+                <h4>Avaliação Interativa</h4>
+                <p>
+                    Sistema completo de avaliação com 19 categorias diagnósticas. Gera protocolos de acupuntura automaticamente 
+                    baseados em padrões de Excesso, Deficiência e Estagnação.
+                </p>
+                <a href="avaliacao-interativa.html">Acessar ferramenta →</a>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-icon">📋</div>
+                <h4>Fichas de Avaliação</h4>
+                <p>
+                    Formulários impressos profissionais para consultas presenciais. Formato A4, completo com 
+                    todas as categorias diagnósticas e espaço para protocolos.
+                </p>
+                <a href="ficha-avaliacao-estatica.html" target="_blank">Baixar fichas →</a>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-icon">💉</div>
+                <h4>Atlas de Pontos</h4>
+                <p>
+                    Guia completo com 40+ pontos de acupuntura, localizações precisas, funções clínicas, 
+                    protocolos de auriculoterapia e técnicas de moxabustão.
+                </p>
+                <a href="atlas-pontos-acupuntura.html" target="_blank">Ver atlas →</a>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-icon">💙</div>
+                <h4>Avaliação Emocional</h4>
+                <p>
+                    Análise profunda das emoções nos 5 Elementos. Os 5 aspectos do Shen (Hun, Shen, Yi, Po, Zhi) 
+                    e protocolos específicos para desequilíbrios emocionais.
+                </p>
+                <a href="avaliacao-emocional-5-elementos.html" target="_blank">Explorar →</a>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-icon">📊</div>
+                <h4>Histórico de Pacientes</h4>
+                <p>
+                    Sistema de armazenamento local de avaliações. Exportação em JSON e CSV para integração 
+                    com sistemas de prontuário eletrônico.
+                </p>
+                <a href="avaliacao-interativa.html">Gerenciar histórico →</a>
+            </div>
+
+            <div class="resource-card">
+                <div class="resource-icon">🎓</div>
+                <h4>Material Didático</h4>
+                <p>
+                    Conteúdo educacional completo sobre diagnóstico por padrões, teoria dos 5 Elementos, 
+                    seleção de pontos e estratégias terapêuticas.
+                </p>
+                <a href="recursos.html">Acessar conteúdo →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about-section">
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Sobre o IBBEA</h3>
+                <p>
+                    O Instituto Brasileiro do Bem Estar e Envelhecimento Ativo (IBBEA) é uma instituição dedicada 
+                    ao ensino, pesquisa e aplicação clínica da Medicina Tradicional Chinesa, com foco especial 
+                    em longevidade, qualidade de vida e envelhecimento saudável.
+                </p>
+                <p>
+                    Desenvolvemos ferramentas clínicas, material didático e sistemas de avaliação baseados nos 
+                    princípios milenares da MTC, adaptados às necessidades da prática contemporânea.
+                </p>
+                <a href="sobre.html" class="btn btn-secondary">Conheça nossa história</a>
+            </div>
+
+            <div class="about-features">
+                <div class="feature-item">
+                    <div class="feature-icon">🎯</div>
+                    <div class="feature-text">
+                        <h5>Diagnóstico por Padrões</h5>
+                        <p>Sistema completo de identificação de padrões de Excesso, Deficiência e Estagnação</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">💉</div>
+                    <div class="feature-text">
+                        <h5>Protocolos Clínicos</h5>
+                        <p>36 protocolos de acupuntura pré-programados baseados em evidências clínicas</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <div class="feature-text">
+                        <h5>Tecnologia Integrada</h5>
+                        <p>Ferramentas digitais modernas preservando a sabedoria tradicional</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🎓</div>
+                    <div class="feature-text">
+                        <h5>Formação Profissional</h5>
+                        <p>Material didático completo para profissionais da área de saúde</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>IBBEA</h4>
+                <p>
+                    Instituto Brasileiro do Bem Estar e Envelhecimento Ativo
+                </p>
+                <p style="margin-top: 1rem;">
+                    Medicina Tradicional Chinesa<br>
+                    Acupuntura • Fitoterapia • Longevidade
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Recursos</h4>
+                <div class="footer-links">
+                    <a href="avaliacao-interativa.html">Avaliação Interativa</a>
+                    <a href="ficha-avaliacao-estatica.html">Fichas para Impressão</a>
+                    <a href="atlas-pontos-acupuntura.html">Atlas de Pontos</a>
+                    <a href="avaliacao-emocional-5-elementos.html">Avaliação Emocional</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Instituto</h4>
+                <div class="footer-links">
+                    <a href="sobre.html">Sobre o IBBEA</a>
+                    <a href="recursos.html">Material Didático</a>
+                    <a href="contato.html">Contato</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Importante</h4>
+                <p style="font-size: 0.85rem; line-height: 1.7;">
+                    Este material é destinado a profissionais da área de saúde com formação em acupuntura e MTC. 
+                    A prática da acupuntura requer treinamento técnico adequado e registro profissional.
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 IBBEA - Instituto Brasileiro do Bem Estar e Envelhecimento Ativo. Todos os direitos reservados.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem;">Desenvolvido com 針 para profissionais da Medicina Tradicional Chinesa</p>
+        </div>
+    </footer>
+
+</body>
+</html>
